@@ -1,4 +1,11 @@
 lua require('plug_init')
+
+lua require('plugins/nvim-treesitter')
+lua require('plugins/nvim-web-devicons')
+lua require('plugins/nvim-cmp')
+lua require('plugins/nvim-lsp-installer')
+lua require('plugins/trouble')
+
 lua require('core/keymaps')
 
 
@@ -28,3 +35,9 @@ set hlsearch
 set ignorecase
 set incsearch
 set smartcase
+
+"Colors
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
+set termguicolors
+
