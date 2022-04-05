@@ -1,3 +1,4 @@
+lua require('plug_init')
 lua require('core/keymaps')
 
 
@@ -22,7 +23,7 @@ set smarttab
 set tabstop=4
 set fixeol
 
-" Search Options
+"Search Options
 set hlsearch
 set ignorecase
 set incsearch
