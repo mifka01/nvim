@@ -29,7 +29,9 @@
 
 ## Installation
 
-1. Clone [this repository](https://github.com/brainfucksec/neovim-lua) with `git`
+1. Install requirements
+
+2. Clone [this repository](https://github.com/brainfucksec/neovim-lua) with `git`
 
 ```term
 git clone https://github.com/mifka01/nvim.git
@@ -42,9 +44,9 @@ git clone https://github.com/mifka01/nvim.git
       ~/AppData/Local/nvim/
 </details>
 
-2. Open Neovim and run `:PlugInstall` command
+3. Open Neovim and run `:PlugInstall` command
 
-3. Install languages using [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
+4. Install languages using [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
 
 
 
