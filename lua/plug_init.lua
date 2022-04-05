@@ -4,7 +4,6 @@ vim.call('plug#begin', '~/AppData/Local/nvim/lua/plugins/plugged')
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'wbthomason/packer.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
