@@ -10,7 +10,7 @@
 
 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - A completion engine plugin for neovim written in Lua
 
-[vim-vsnip](https://github.com/hrsh7th/vim-vsnip) - VSCode(LSP)'s snippet feature in vim.
+[vim-vsnip](https://github.com/hrsh7th/vim-vsnip) - VSCode(LSP)'s snippet feature in vim
 
 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
 
