@@ -44,3 +44,7 @@
 **Colorscheme:** [gruvbox](https://github.com/morhetz/gruvbox)
 
 **Icons:** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
