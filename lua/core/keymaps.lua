@@ -6,10 +6,11 @@ vim.g.mapleader = ' '
 
 
 -- Telescope keymaps
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {noremap = true})
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {noremap = true})
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {noremap = true})
-map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
+--
+map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", {noremap = true})
+map('n', '<leader>fb', "<cmd>lua require'telescope.builtin'.buffers({ show_all_buffers = true })<cr>", {noremap = true})
+map('n', '<leader>fg', "<cmd>lua require'telescope.builtin'.live_grep()<cr>", {noremap = true})
+map('n', '<leader>gs', "<cmd>lua require'telescope.builtin'.git_status()<cr>", {noremap = true})
 
 
 -- Trouble keymaps
