@@ -18,6 +18,8 @@
 
 [trouble.nvim](https://github.com/folke/trouble.nvim) - A pretty list for showing diagnostics etc.
 
+[vista.vim](https://github.com/liuchengxu/vista.vim) - View and search LSP symbols and tags
+
 [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - A Lua fork of vim-devicons
 
 [gruvbox](https://github.com/morhetz/gruvbox) - Colorscheme
@@ -26,7 +28,7 @@
 
 - [neovim](https://github.com/neovim/neovim) - Stable version
 - [vim-plug](https://github.com/junegunn/vim-plug) - Plugin manager
-- [universal-ctags](https://github.com/universal-ctags/ctags)
+- [universal-ctags](https://github.com/universal-ctags/ctags) - Vista requirement
 
 ## Installation
 
