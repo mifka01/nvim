@@ -22,6 +22,8 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'liuchengxu/vista.vim'
 Plug 'itchyny/lightline.vim'
 
+Plug 'andweeb/presence.nvim'
+
 Plug 'morhetz/gruvbox'
 
 

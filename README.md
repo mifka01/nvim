@@ -22,6 +22,8 @@
 
 [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - A Lua fork of vim-devicons
 
+[presence.vim](https://github.com/andweeb/presence.nvim) - Discord Rich Presence
+
 [gruvbox](https://github.com/morhetz/gruvbox) - Colorscheme
 
 ## Requirements
