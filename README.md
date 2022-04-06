@@ -24,6 +24,8 @@
 
 [presence.vim](https://github.com/andweeb/presence.nvim) - Discord Rich Presence
 
+[lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - Neovim statusline written in Lua
+
 [gruvbox](https://github.com/morhetz/gruvbox) - Colorscheme
 
 ## Requirements

@@ -5,6 +5,7 @@ lua require('plugins/nvim-web-devicons')
 lua require('plugins/nvim-cmp')
 lua require('plugins/nvim-lsp-installer')
 lua require('plugins/trouble')
+lua require('plugins/nvim-lualine')
 
 lua require('core/keymaps')
 
@@ -42,6 +43,5 @@ set smartcase
 
 "Colors
 colorscheme gruvbox
-let g:airline_theme = 'gruvbox'
 set termguicolors
 
