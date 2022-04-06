@@ -16,4 +16,6 @@ map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
 map('n', '<leader>xx', '<cmd>TroubleToggle<cr>', {noremap = true})
 map('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', {noremap = true})
 
+-- Vista keymaps
+map('n', '<leader>vv', '<cmd>Vista!!<cr>', {noremap = true})
 

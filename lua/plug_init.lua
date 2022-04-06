@@ -19,6 +19,9 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+Plug 'liuchengxu/vista.vim'
+Plug 'itchyny/lightline.vim'
+
 Plug 'morhetz/gruvbox'
 
 

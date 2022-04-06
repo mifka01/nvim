@@ -26,6 +26,7 @@
 
 - [neovim](https://github.com/neovim/neovim) - Stable version
 - [vim-plug](https://github.com/junegunn/vim-plug) - Plugin manager
+- [universal-ctags](https://github.com/universal-ctags/ctags)
 
 ## Installation
 

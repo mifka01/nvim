@@ -15,6 +15,10 @@ set noerrorbells
 set title
 set clipboard=unnamedplus
 
+"Lightline
+set laststatus=2
+set noshowmode
+
 "Text Rendering Options
 set encoding=utf-8
 set linebreak
