@@ -68,6 +68,7 @@ git clone https://github.com/mifka01/nvim.git
 │   │   ├── nvim-lsp-installer.lua
 │   │   ├── nvim-treesitter.lua
 │   │   ├── nvim-web-devicons.lua
+│   │   ├── presence.lua
 │   │   └── trouble.lua
 │   └── plug_init.lua
 └── init.vim

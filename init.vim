@@ -6,6 +6,7 @@ lua require('plugins/nvim-cmp')
 lua require('plugins/nvim-lsp-installer')
 lua require('plugins/trouble')
 lua require('plugins/nvim-lualine')
+lua require('plugins/presence')
 
 lua require('core/keymaps')
 
