@@ -7,7 +7,7 @@ vim.g.mapleader = ' '
 
 -- Telescope keymaps
 --
-map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", {noremap = true})
+map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}), { find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", {noremap = true})
 map('n', '<leader>fb', "<cmd>lua require'telescope.builtin'.buffers({ show_all_buffers = true })<cr>", {noremap = true})
 map('n', '<leader>fg', "<cmd>lua require'telescope.builtin'.live_grep()<cr>", {noremap = true})
 map('n', '<leader>gs', "<cmd>lua require'telescope.builtin'.git_status()<cr>", {noremap = true})
