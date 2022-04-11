@@ -31,6 +31,7 @@
 ## Requirements
 
 - [neovim](https://github.com/neovim/neovim) - Stable version
+- [ripgrep](https://github.com/BurntSushi/ripgrep) - line-oriented search tool (Telescope dependency)
 - [vim-plug](https://github.com/junegunn/vim-plug) - Plugin manager
 - [universal-ctags](https://github.com/universal-ctags/ctags) - Vista requirement
 
