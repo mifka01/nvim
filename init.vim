@@ -9,7 +9,7 @@ lua require('plugins/nvim-lualine')
 
 " Uncomment for discord rich presence (https://github.com/andweeb/presence.nvim)
 " Change configuration in lua/plugins/presence.lua
-lua require('plugins/presence')
+" lua require('plugins/presence')
 
 lua require('core/keymaps')
 
