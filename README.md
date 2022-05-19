@@ -39,7 +39,7 @@
 
 1. Install requirements
 
-2. Clone [this repository](https://github.com/brainfucksec/neovim-lua) with `git`
+2. Clone [this repository](https://github.com/mifka01/nvim) with `git`
 
 ```term
 git clone https://github.com/mifka01/nvim.git
