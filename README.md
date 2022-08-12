@@ -42,7 +42,7 @@
 2. Clone [this repository](https://github.com/mifka01/nvim) with `git`
 
 ```term
-git clone https://github.com/mifka01/nvim.git
+git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 ```
 <details><summary>Unix path</summary>
       ~/.config/nvim/
