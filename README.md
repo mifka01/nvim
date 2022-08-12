@@ -44,13 +44,6 @@
 ```term
 git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 ```
-<details><summary>Unix path</summary>
-      ~/.config/nvim/
-</details>
-
-<details><summary>Win path</summary>
-      ~/AppData/Local/nvim/
-</details>
 
 3. Open Neovim and run `:PlugInstall` command
 
