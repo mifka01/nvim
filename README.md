@@ -1,8 +1,12 @@
 # Neovim configuration with Lua
 
+This config is based on awesome [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch) repository.
+
 ## Plugins
 
-[vim-plug](https://github.com/junegunn/vim-plug) -  A minimalist Vim plugin manager
+[packer](https://github.com/wbthomason/packer.nvim) - Plugin manager
+
+[autopairs](https://github.com/windwp/nvim-autopairs) - A super powerful autopair plugin for Neovim.
 
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - A collection of common configurations for Neovim's built-in language server client
 
@@ -10,30 +14,49 @@
 
 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - A completion engine plugin for neovim written in Lua
 
-[vim-vsnip](https://github.com/hrsh7th/vim-vsnip) - VSCode(LSP)'s snippet feature in vim
+[nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - A Lua fork of vim-devicons
+
+[nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) - A File Explorer For Neovim Written In Lua
 
 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
 
-[telescope.nvim](https://github.com/nvim-treesitter/nvim-treesitter) - Highly extendable fuzzy finder over lists
+[LuaSnip](https://github.com/L3MON4D3/LuaSnip) - Snipper engine
 
-[trouble.nvim](https://github.com/folke/trouble.nvim) - A pretty list for showing diagnostics etc.
+[friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippets collection for a set of different programming languages
 
-[vista.vim](https://github.com/liuchengxu/vista.vim) - View and search LSP symbols and tags
+[null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
-[nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - A Lua fork of vim-devicons
+[telescope](https://github.com/nvim-treesitter/nvim-treesitter) - Highly extendable fuzzy finder over lists
 
-[presence.vim](https://github.com/andweeb/presence.nvim) - Discord Rich Presence
+[lualine](https://github.com/nvim-lualine/lualine.nvim) - Neovim statusline written in Lua
 
-[lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - Neovim statusline written in Lua
+[gitsigns](https://github.com/lewis6991/gitsigns.nvim) - Super fast git decorations implemented purely in lua.
 
 [gruvbox](https://github.com/morhetz/gruvbox) - Colorscheme
 
+[Comment](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim
+
+[nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) - A Neovim plugin for setting the commentstring option
+
+[impatient](https://github.com/lewis6991/impatient.nvim) - Speed up loading Lua modules in Neovim to improve startup time.
+
 ## Requirements
 
-- [neovim](https://github.com/neovim/neovim) - Stable version
+**general**
+
+- [neovim](https://github.com/neovim/neovim) - Nightly version
+
+**telescope**
+
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - line-oriented search tool (Telescope dependency)
-- [vim-plug](https://github.com/junegunn/vim-plug) - Plugin manager
-- [universal-ctags](https://github.com/universal-ctags/ctags) - Vista requirement
+
+**null-ls**
+
+- [flake8](https://flake8.pycqa.org/en/latest/) - Python code linter
+- [autopep8](https://github.com/hhatto/autopep8) - Python code formatter
+- [prettier](https://github.com/prettier/prettier) - Opinionated Code Formatte
+- [phpcbf](https://github.com/squizlabs/PHP_CodeSniffer) - PHP Code sniffer
+- [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)- PHP Coding Standards Fixer
 
 ## Installation
 
@@ -45,27 +68,36 @@
 git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 ```
 
-3. Open Neovim and run `:PlugInstall` command
-
-4. Install languages using [williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
-
-
-
 ## Directory Tree
 
 ```
 ├── lua
-│   ├── core
-│   │   └── keymaps.lua
-│   ├── plugins
-│   │   ├── nvim-cmp.lua
-│   │   ├── nvim-lsp-installer.lua
-│   │   ├── nvim-treesitter.lua
-│   │   ├── nvim-web-devicons.lua
-│   │   ├── presence.lua
-│   │   └── trouble.lua
+│   ├── user
+│   │   ├── lsp
+│   │   │   ├── settings
+│   │   │   │   ├── jsonls.lua
+│   │   │   │   ├── pyright.lua
+│   │   │   │   └── sumneko_lua.lua
+│   │   │   ├── configs.lua
+│   │   │   ├── handlers.lua
+│   │   │   ├── init.lua
+│   │   │   └── null-ls.lua
+│   │   ├── autocommands.lua
+│   │   ├── autopairs.lua
+│   │   ├── cmp.lua
+│   │   ├── colorscheme.lua
+│   │   ├── comment.lua
+│   │   ├── gitsigns.lua
+│   │   ├── impatient.lua
+│   │   ├── keymaps.lua
+│   │   ├── lualine.lua
+│   │   ├── nvim-tree.lua
+│   │   ├── options.lua
+│   │   ├── plugins.lua
+│   │   ├── telescope.lua
+│   │   └── treesitter.lua
 │   └── plug_init.lua
-└── init.vim
+└── init.lua
 ```
 
 ## Appearance
@@ -75,5 +107,5 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 **Icons:** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
 
+[MIT](https://choosealicense.com/licenses/mit/)
