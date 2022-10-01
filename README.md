@@ -32,13 +32,15 @@ This config is based on awesome [neovim-from-scratch](https://github.com/LunarVi
 
 [gitsigns](https://github.com/lewis6991/gitsigns.nvim) - Super fast git decorations implemented purely in lua.
 
-[gruvbox](https://github.com/morhetz/gruvbox) - Colorscheme
+[sunbather](https://github.com/nikolvs/vim-sunbather) - Colorscheme
 
 [Comment](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim
 
 [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) - A Neovim plugin for setting the commentstring option
 
 [impatient](https://github.com/lewis6991/impatient.nvim) - Speed up loading Lua modules in Neovim to improve startup time.
+
+[vista](https://github.com/liuchengxu/vista.vim) - View and search LSP symbols, tags in NeoVim.
 
 ## Requirements
 
@@ -102,7 +104,7 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 
 ## Appearance
 
-**Colorscheme:** [gruvbox](https://github.com/morhetz/gruvbox)
+**Colorscheme:** [sunbather](https://github.com/nikolvs/vim-sunbather)
 
 **Icons:** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 

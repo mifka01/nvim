@@ -46,7 +46,8 @@ return packer.startup(function(use)
 	use({ "numToStr/Comment.nvim", commit = "4818a4c2ecf64ace6358b81073ad5d76f657953d" }) -- Easily comment stuff
 
 	-- Colorscheme
-	use({ "morhetz/gruvbox", commit = "bf2885a95efdad7bd5e4794dd0213917770d79b7" }) -- Gruvbox colorsheme
+	--[[ use({ "morhetz/gruvbox", commit = "bf2885a95efdad7bd5e4794dd0213917770d79b7" }) -- Gruvbox colorscheme ]]
+	use({ "nikolvs/vim-sunbather", commit = "64506a07a735ad92752e0e9935c4fc304f0327a4" }) -- Sunbather colorscheme
 
 	-- Autopairs
 	use({ "windwp/nvim-autopairs", commit = "34bd374f75fb58656572f847e2bc3565b0acb34f" }) -- Autopairs, integrates with both cmp and treesitter
@@ -98,6 +99,9 @@ return packer.startup(function(use)
 
 	-- Impatient
 	use({ "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" })
+
+	-- Vista
+	use({ "liuchengxu/vista.vim", commit = "9c3e31f67653a1d25147a8dd2a0b2724853d9923" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

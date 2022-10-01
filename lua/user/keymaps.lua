@@ -61,3 +61,6 @@ keymap("n", "<leader>fm", ":Telescope media_files<CR>", opts)
 
 -- Nvim tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+
+-- Vista
+keymap("n", "<leader>v", ":Vista!!<cr>", opts)
