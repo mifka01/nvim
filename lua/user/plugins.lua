@@ -81,12 +81,6 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
-	-- Comments
-	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "4befb8936f5cbec3b726300ab29edacb891e1a7b" })
-
-	-- Git
-	use({ "lewis6991/gitsigns.nvim", commit = "29468d89e71a0cd04aeb750fcfe75c3163347adf" })
-
 	-- Nvim Tree
 	use({ "kyazdani42/nvim-web-devicons", commit = "969728506c0175644a1d448f55e311ccdada7eaf" })
 	use({ "kyazdani42/nvim-tree.lua", commit = "261a5c380c000e23c4a23dcd55b984c856cdb113" })
@@ -96,12 +90,6 @@ return packer.startup(function(use)
 
 	-- Lualine
 	use({ "nvim-lualine/lualine.nvim", commit = "c0510ddec86070dbcacbd291736de27aabbf3bfe" })
-
-	-- Impatient
-	use({ "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" })
-
-	-- Vista
-	use({ "liuchengxu/vista.vim", commit = "9c3e31f67653a1d25147a8dd2a0b2724853d9923" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

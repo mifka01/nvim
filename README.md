@@ -59,6 +59,7 @@ This config is based on awesome [neovim-from-scratch](https://github.com/LunarVi
 - [prettier](https://github.com/prettier/prettier) - Opinionated Code Formatte
 - [phpcbf](https://github.com/squizlabs/PHP_CodeSniffer) - PHP Code sniffer
 - [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)- PHP Coding Standards Fixer
+- [isort](https://github.com/pycqa/isort/) - Python utility to sort imports alphabetically
 
 ## Installation
 
@@ -84,7 +85,6 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   │   │   ├── handlers.lua
 │   │   │   ├── init.lua
 │   │   │   └── null-ls.lua
-│   │   ├── autocommands.lua
 │   │   ├── autopairs.lua
 │   │   ├── cmp.lua
 │   │   ├── colorscheme.lua
