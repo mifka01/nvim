@@ -10,8 +10,6 @@ This config is based on awesome [neovim-from-scratch](https://github.com/LunarVi
 
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - A collection of common configurations for Neovim's built-in language server client
 
-[williamboman/nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer) - Neovim plugin that allows you to seamlessly install LSP servers locally
-
 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - A completion engine plugin for neovim written in Lua
 
 [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - A Lua fork of vim-devicons
@@ -40,7 +38,7 @@ This config is based on awesome [neovim-from-scratch](https://github.com/LunarVi
 
 [impatient](https://github.com/lewis6991/impatient.nvim) - Speed up loading Lua modules in Neovim to improve startup time.
 
-[vista](https://github.com/liuchengxu/vista.vim) - View and search LSP symbols, tags in NeoVim.
+[vim-smoothie](https://github.com/psliwka/vim-smoothie) - Plugin makes scrolling nice and smooth.
 
 ## Requirements
 
