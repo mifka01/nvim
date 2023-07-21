@@ -31,6 +31,17 @@ if not status_ok then
 	return
 end
 
+local status_ok, luasnip = pcall(require, "luasnip")
+if not status_ok then
+	return
+end
+
+require("luasnip/loaders/from_vscode").lazy_load()
+local check_backspace = function()
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+end
+
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
