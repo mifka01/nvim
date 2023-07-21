@@ -55,10 +55,6 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 ```
 ├── lua/user
 │   ├── lsp
-│   │   ├── settings
-│   │   │   ├── jsonls.lua
-│   │   │   ├── pyright.lua
-│   │   │   └── sumneko_lua.lua
 │   │   ├── init.lua
 │   │   └── null-ls.lua
 │   ├── autopairs.lua
