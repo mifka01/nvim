@@ -17,13 +17,13 @@ mason_null_ls.setup({
 		"flake8",
 		"stylua",
 		"prettier",
-		"clang-format" },
+		"clang-format",
+	},
 	automatic_installation = true,
 })
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-
 
 null_ls.setup({
 	debug = false,
@@ -53,7 +53,9 @@ null_ls.setup({
 
 		-- PHP
 		formatting.phpcsfixer.with({
-			extra_args = { "--rules=@Symfony" },
+			extra_args = {
+				"--rules=@Symfony,-echo_tag_syntax,-no_alternative_syntax,-semicolon_after_instruction,-trailing_comma_in_multiline",
+			},
 		}),
 		diagnostics.phpcs,
 
