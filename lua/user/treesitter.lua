@@ -1,3 +1,10 @@
+local status_ok, install = pcall(require, "nvim-treesitter.install")
+if not status_ok then
+	return
+end
+
+install.prefer_git = true
+
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
 	return
