@@ -76,7 +76,7 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 
 ## Appearance
 
-**Colorscheme:** [rose-pine](https://github.com/nikolvs/vim-sunbather)
+**Colorscheme:** [rose-pine](https://github.com/rose-pine/neovim)
 
 **Icons:** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 
