@@ -1,6 +1,6 @@
 # Neovim configuration with Lua
 
-This config is based on awesome [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch) and [primeagen-init](https://github.com/ThePrimeagen/init.lua) repos.
+This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch) and [primeagen-init](https://github.com/ThePrimeagen/init.lua) repos.
 
 ## Plugins
 
