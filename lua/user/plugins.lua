@@ -47,27 +47,40 @@ return packer.startup(function(use)
 
 	-- Colorscheme
 	--[[ use({ "morhetz/gruvbox", commit = "bf2885a95efdad7bd5e4794dd0213917770d79b7" }) -- Gruvbox colorscheme ]]
-	use({ "nikolvs/vim-sunbather" }) -- Sunbather colorscheme
+	-- use({ "nikolvs/vim-sunbather" }) -- Sunbather colorscheme
+	use({ "rose-pine/neovim", as = "rose-pine" })
+
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v1.x",
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
 
 	-- Autopairs
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 
-	-- cmp plugins
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
-	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	use({ "hrsh7th/cmp-path" }) -- path completions
-	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-nvim-lua" })
+	-- Null-ls
+	use({ "jose-elias-alvarez/null-ls.nvim" })
 
-	-- snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
-
-	-- LSP
-	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/mason.nvim" }) --  manage LSP servers
-	use { "williamboman/mason-lspconfig.nvim" }
+	-- Mason Null ls
+	use({ "jay-babu/mason-null-ls.nvim" })
 
 	-- Telescope
 	use({
@@ -83,14 +96,13 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "kyazdani42/nvim-tree.lua" })
 
-	-- Null-ls
-	use({ "jose-elias-alvarez/null-ls.nvim" })
-
 	-- Lualine
 	use({ "nvim-lualine/lualine.nvim" })
 
 	-- Smooth scroll
 	use({ "psliwka/vim-smoothie" })
+
+	use({ "tpope/vim-fugitive" })
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
