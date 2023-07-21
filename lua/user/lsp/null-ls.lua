@@ -1,10 +1,29 @@
-local null_ls_status_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_status_ok then
+local status_ok, null_ls = pcall(require, "null-ls")
+if not status_ok then
 	return
 end
 
+local status_ok, mason_null_ls = pcall(require, "mason-null-ls")
+if not status_ok then
+	return
+end
+
+mason_null_ls.setup({
+	ensure_installed = {
+		"phpcsfixer",
+		"phpcs",
+		"autopep8",
+		"isort",
+		"flake8",
+		"stylua",
+		"prettier",
+		"clang-format" },
+	automatic_installation = true,
+})
+
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+
 
 null_ls.setup({
 	debug = false,

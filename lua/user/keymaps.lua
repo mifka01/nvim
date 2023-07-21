@@ -8,15 +8,20 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+-- Fugitive
+keymap("n", "<leader>gs", ":Git<CR>", opts)
 
 -- Normal --
+keymap("n", "<C-d>", "<cmd> call smoothie#do('<C-d>zz') <CR>", opts)
+keymap("n", "<C-u>", "<cmd> call smoothie#do('<C-u>zz') <CR>", opts)
+
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+
+keymap("n", "<leader>y", '"+y', opts)
+keymap("v", "<leader>y", '"+y', opts)
+keymap("n", "<leader>Y", '"+Y', opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -26,10 +31,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -45,16 +46,14 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+keymap("x", "<S-Down>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<S-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
-keymap(
-	"n",
-	"<leader>ff",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	opts
-)
+
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>gf", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fm", ":Telescope media_files<CR>", opts)
@@ -62,5 +61,5 @@ keymap("n", "<leader>fm", ":Telescope media_files<CR>", opts)
 -- Nvim tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
--- Vista
-keymap("n", "<leader>v", ":Vista!!<cr>", opts)
+-- Replace
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
