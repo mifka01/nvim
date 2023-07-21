@@ -60,3 +60,6 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Replace
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
+
+-- Toggle diagnostics
+keymap("n", "<leader>td", "<Plug>(toggle-lsp-diag-vtext)", opts)

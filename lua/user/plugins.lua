@@ -102,6 +102,8 @@ return packer.startup(function(use)
 	-- Smooth scroll
 	use({ "psliwka/vim-smoothie" })
 
+	use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
