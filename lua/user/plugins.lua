@@ -102,8 +102,6 @@ return packer.startup(function(use)
 	-- Smooth scroll
 	use({ "psliwka/vim-smoothie" })
 
-	use({ "tpope/vim-fugitive" })
-
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

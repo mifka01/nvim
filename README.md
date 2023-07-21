@@ -1,6 +1,6 @@
 # Neovim configuration with Lua
 
-This config is based on awesome [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch) repository.
+This config is based on awesome [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch) and [primeagen-init] (https://github.com/ThePrimeagen/init.lua) repos.
 
 ## Plugins
 
@@ -8,9 +8,7 @@ This config is based on awesome [neovim-from-scratch](https://github.com/LunarVi
 
 [autopairs](https://github.com/windwp/nvim-autopairs) - A super powerful autopair plugin for Neovim.
 
-[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - A collection of common configurations for Neovim's built-in language server client
-
-[nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - A completion engine plugin for neovim written in Lua
+[lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) - Bundle for CMP and LSP
 
 [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - A Lua fork of vim-devicons
 
@@ -18,25 +16,17 @@ This config is based on awesome [neovim-from-scratch](https://github.com/LunarVi
 
 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
 
-[LuaSnip](https://github.com/L3MON4D3/LuaSnip) - Snipper engine
-
-[friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippets collection for a set of different programming languages
-
 [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+
+[mason-null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Bridges mason.nvim with the null-ls plugin.
 
 [telescope](https://github.com/nvim-treesitter/nvim-treesitter) - Highly extendable fuzzy finder over lists
 
 [lualine](https://github.com/nvim-lualine/lualine.nvim) - Neovim statusline written in Lua
 
-[gitsigns](https://github.com/lewis6991/gitsigns.nvim) - Super fast git decorations implemented purely in lua.
-
-[sunbather](https://github.com/nikolvs/vim-sunbather) - Colorscheme
+[rose-pine](https://github.com/rose-pine/neovim) - Colorscheme
 
 [Comment](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim
-
-[nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring) - A Neovim plugin for setting the commentstring option
-
-[impatient](https://github.com/lewis6991/impatient.nvim) - Speed up loading Lua modules in Neovim to improve startup time.
 
 [vim-smoothie](https://github.com/psliwka/vim-smoothie) - Plugin makes scrolling nice and smooth.
 
@@ -44,20 +34,11 @@ This config is based on awesome [neovim-from-scratch](https://github.com/LunarVi
 
 **general**
 
-- [neovim](https://github.com/neovim/neovim) - Nightly version
+- [neovim](https://github.com/neovim/neovim) - 0.9.1 version
 
 **telescope**
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - line-oriented search tool (Telescope dependency)
-
-**null-ls**
-
-- [flake8](https://flake8.pycqa.org/en/latest/) - Python code linter
-- [autopep8](https://github.com/hhatto/autopep8) - Python code formatter
-- [prettier](https://github.com/prettier/prettier) - Opinionated Code Formatte
-- [phpcbf](https://github.com/squizlabs/PHP_CodeSniffer) - PHP Code sniffer
-- [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)- PHP Coding Standards Fixer
-- [isort](https://github.com/pycqa/isort/) - Python utility to sort imports alphabetically
 
 ## Installation
 
@@ -72,37 +53,30 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 ## Directory Tree
 
 ```
-├── lua
-│   ├── user
-│   │   ├── lsp
-│   │   │   ├── settings
-│   │   │   │   ├── jsonls.lua
-│   │   │   │   ├── pyright.lua
-│   │   │   │   └── sumneko_lua.lua
-│   │   │   ├── configs.lua
-│   │   │   ├── handlers.lua
-│   │   │   ├── init.lua
-│   │   │   └── null-ls.lua
-│   │   ├── autopairs.lua
-│   │   ├── cmp.lua
-│   │   ├── colorscheme.lua
-│   │   ├── comment.lua
-│   │   ├── gitsigns.lua
-│   │   ├── impatient.lua
-│   │   ├── keymaps.lua
-│   │   ├── lualine.lua
-│   │   ├── nvim-tree.lua
-│   │   ├── options.lua
-│   │   ├── plugins.lua
-│   │   ├── telescope.lua
-│   │   └── treesitter.lua
-│   └── plug_init.lua
+├── lua/user
+│   ├── lsp
+│   │   ├── settings
+│   │   │   ├── jsonls.lua
+│   │   │   ├── pyright.lua
+│   │   │   └── sumneko_lua.lua
+│   │   ├── init.lua
+│   │   └── null-ls.lua
+│   ├── autopairs.lua
+│   ├── colorscheme.lua
+│   ├── comment.lua
+│   ├── keymaps.lua
+│   ├── lualine.lua
+│   ├── nvim-tree.lua
+│   ├── options.lua
+│   ├── plugins.lua
+│   ├── telescope.lua
+│   └── treesitter.lua
 └── init.lua
 ```
 
 ## Appearance
 
-**Colorscheme:** [sunbather](https://github.com/nikolvs/vim-sunbather)
+**Colorscheme:** [rose-pine](https://github.com/nikolvs/vim-sunbather)
 
 **Icons:** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 

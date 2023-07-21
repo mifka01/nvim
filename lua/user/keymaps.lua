@@ -8,9 +8,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Fugitive
-keymap("n", "<leader>gs", ":Git<CR>", opts)
-
 -- Normal --
 keymap("n", "<C-d>", "<cmd> call smoothie#do('<C-d>zz') <CR>", opts)
 keymap("n", "<C-u>", "<cmd> call smoothie#do('<C-u>zz') <CR>", opts)
