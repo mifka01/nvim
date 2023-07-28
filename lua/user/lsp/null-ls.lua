@@ -57,6 +57,7 @@ null_ls.setup({
 				"--rules=@Symfony,-echo_tag_syntax,-no_alternative_syntax,-semicolon_after_instruction,-trailing_comma_in_multiline",
 			},
 		}),
+
 		diagnostics.phpcs,
 
 		-- LUA

@@ -136,4 +136,4 @@ if not status_ok then
 	return
 end
 
-diag.init({ virtual_text = false })
+diag.init({ virtual_text = false, underline = false })
