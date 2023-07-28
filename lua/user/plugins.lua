@@ -104,6 +104,8 @@ return packer.startup(function(use)
 
 	use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
 
+	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
