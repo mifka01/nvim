@@ -30,6 +30,10 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 [vim-smoothie](https://github.com/psliwka/vim-smoothie) - Plugin makes scrolling nice and smooth.
 
+[nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) - Better folding
+
+[statuscol](https://github.com/luukvbaal/statuscol.nvim) - Hide folding numbers (for ufo)
+
 ## Requirements
 
 **general**
@@ -66,7 +70,8 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   ├── options.lua
 │   ├── plugins.lua
 │   ├── telescope.lua
-│   └── treesitter.lua
+│   ├── treesitter.lua
+│   └── ufo.lua
 └── init.lua
 ```
 
