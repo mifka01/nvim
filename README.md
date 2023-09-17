@@ -4,15 +4,15 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 ## Plugins
 
-[packer](https://github.com/wbthomason/packer.nvim) - Plugin manager
+[lazy](https://github.com/folke/lazy.nvim) - Plugin manager
 
 [autopairs](https://github.com/windwp/nvim-autopairs) - A super powerful autopair plugin for Neovim.
 
 [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) - Bundle for CMP and LSP
 
-[nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) - A Lua fork of vim-devicons
+[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - A Lua fork of vim-devicons
 
-[nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) - A File Explorer For Neovim Written In Lua
+[nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - A File Explorer For Neovim Written In Lua
 
 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
 
