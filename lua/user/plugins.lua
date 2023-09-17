@@ -1,59 +1,35 @@
 local fn = vim.fn
 
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
+local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+if not vim.loop.fs_stat(lazypath) then
+	fn.system({
 		"git",
 		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
 	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
-end
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
 end
 
--- Have packer use a popup window
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
-})
+vim.opt.rtp:prepend(lazypath)
 
--- Install your plugins here
-return packer.startup(function(use)
-	-- My plugins here
-	use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
-	use({ "nvim-lua/popup.nvim" }) -- An implementation of the Popup API from vim in Neovim
-	use({ "nvim-lua/plenary.nvim" }) -- Useful lua functions used by lots of plugins
-	use({ "numToStr/Comment.nvim" }) -- Easily comment stuff
+require("lazy").setup({
+
+	{ "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
+	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
+	{ "numToStr/Comment.nvim", tag = 'v0.8.0' }, -- Easily comment stuff
 
 	-- Colorscheme
-	--[[ use({ "morhetz/gruvbox", commit = "bf2885a95efdad7bd5e4794dd0213917770d79b7" }) -- Gruvbox colorscheme ]]
-	-- use({ "nikolvs/vim-sunbather" }) -- Sunbather colorscheme
-	use({ "rose-pine/neovim", as = "rose-pine" })
+	--[[ ({ "morhetz/gruvbox", commit = "bf2885a95efdad7bd5e4794dd0213917770d79b7" }) -- Gruvbox colorscheme ]]
+	-- ({ "nikolvs/vim-sunbather" }) -- Sunbather colorscheme
+	{ "rose-pine/neovim", name = "rose-pine" },
 
-	use({
+	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v1.x",
-		requires = {
+		branch = "v3.x",
+		dependencies = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" },
 			{ "williamboman/mason.nvim" },
@@ -61,52 +37,44 @@ return packer.startup(function(use)
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
 			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-
-			-- Snippets
 			{ "L3MON4D3/LuaSnip" },
-			{ "rafamadriz/friendly-snippets" },
 		},
-	})
-
-	-- Autopairs
-	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
-
-	-- Null-ls
-	use({ "jose-elias-alvarez/null-ls.nvim" })
-
-	-- Mason Null ls
-	use({ "jay-babu/mason-null-ls.nvim" })
-
-	-- Telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-	})
+	},
 
 	-- Treesitter
-	use({
+	{
 		"nvim-treesitter/nvim-treesitter",
-	})
+        tag = 'v0.9.1',
+	},
+
+	-- Autopairs
+	{ "windwp/nvim-autopairs",
+     event = "InsertEnter",}, -- Autopairs, integrates with both cmp and treesitter
+
+	-- Null-ls
+	{ "jose-elias-alvarez/null-ls.nvim" },
+
+	-- Mason Null ls
+	{ "jay-babu/mason-null-ls.nvim" },
+
+	-- Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+	},
 
 	-- Nvim Tree
-	use({ "kyazdani42/nvim-web-devicons" })
-	use({ "kyazdani42/nvim-tree.lua" })
+	{ "nvim-tree/nvim-web-devicons", commit="973ab742f143a796a779af4d786ec409116a0d87" },
+	{ "nvim-tree/nvim-tree.lua", commit="a3aa3b47eac8b6289f028743bef4ce9eb0f6782e" },
 
 	-- Lualine
-	use({ "nvim-lualine/lualine.nvim" })
+	{ "nvim-lualine/lualine.nvim", commit="45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
 
 	-- Smooth scroll
-	use({ "psliwka/vim-smoothie" })
+	{ "psliwka/vim-smoothie",commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" },
 
-	use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
+	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", commit="a896a95851fe5c5adf71a50030d60f8fa488fa7e" },
 
-	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } })
-
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
+	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } },
+})
