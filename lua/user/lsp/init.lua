@@ -8,6 +8,8 @@ lsp.on_attach(function(client, bufnr)
 	lsp.default_keymaps({ buffer = bufnr })
 end)
 
+
+
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
 	return
@@ -46,6 +48,12 @@ mason_lsp.setup({
 		end,
 	},
 })
+
+
+local status_ok, null_ls = pcall(require, "user.lsp.null-ls")
+if not status_ok then
+	return
+end
 
 local status_ok, cmp = pcall(require, "cmp")
 if not status_ok then
