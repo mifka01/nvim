@@ -64,6 +64,8 @@ null_ls.setup({
 		formatting.stylua,
 
 		-- CLANG
-		formatting.clang_format,
+		formatting.clang_format.with({
+			extra_args = { "-style=chromium" },
+		}),
 	},
 })

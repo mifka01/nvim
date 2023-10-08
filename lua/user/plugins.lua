@@ -19,7 +19,7 @@ require("lazy").setup({
 
 	{ "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
-	{ "numToStr/Comment.nvim", tag = 'v0.8.0' }, -- Easily comment stuff
+	{ "numToStr/Comment.nvim", tag = "v0.8.0" }, -- Easily comment stuff
 
 	-- Colorscheme
 	--[[ ({ "morhetz/gruvbox", commit = "bf2885a95efdad7bd5e4794dd0213917770d79b7" }) -- Gruvbox colorscheme ]]
@@ -38,19 +38,25 @@ require("lazy").setup({
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "L3MON4D3/LuaSnip" },
+			{
+				"L3MON4D3/LuaSnip",
+				opts = {
+					history = true,
+					delete_check_events = "TextChanged",
+					region_check_events = "CursorMoved",
+				},
+			},
 		},
 	},
 
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
-        tag = 'v0.9.1',
+		tag = "v0.9.1",
 	},
 
 	-- Autopairs
-	{ "windwp/nvim-autopairs",
-     event = "InsertEnter",}, -- Autopairs, integrates with both cmp and treesitter
+	{ "windwp/nvim-autopairs", event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
 
 	-- Null-ls
 	{ "jose-elias-alvarez/null-ls.nvim" },
@@ -65,16 +71,16 @@ require("lazy").setup({
 	},
 
 	-- Nvim Tree
-	{ "nvim-tree/nvim-web-devicons", commit="973ab742f143a796a779af4d786ec409116a0d87" },
-	{ "nvim-tree/nvim-tree.lua", commit="a3aa3b47eac8b6289f028743bef4ce9eb0f6782e" },
+	{ "nvim-tree/nvim-web-devicons", commit = "973ab742f143a796a779af4d786ec409116a0d87" },
+	{ "nvim-tree/nvim-tree.lua", commit = "a3aa3b47eac8b6289f028743bef4ce9eb0f6782e" },
 
 	-- Lualine
-	{ "nvim-lualine/lualine.nvim", commit="45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
+	{ "nvim-lualine/lualine.nvim", commit = "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
 
 	-- Smooth scroll
-	{ "psliwka/vim-smoothie",commit="df1e324e9f3395c630c1c523d0555a01d2eb1b7e" },
+	{ "psliwka/vim-smoothie", commit = "df1e324e9f3395c630c1c523d0555a01d2eb1b7e" },
 
-	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", commit="a896a95851fe5c5adf71a50030d60f8fa488fa7e" },
+	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", commit = "a896a95851fe5c5adf71a50030d60f8fa488fa7e" },
 
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } },
 })
