@@ -83,4 +83,12 @@ require("lazy").setup({
 	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", commit = "a896a95851fe5c5adf71a50030d60f8fa488fa7e" },
 
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } },
+
+    -- Multiline editing
+    {'mg979/vim-visual-multi', branch="master", init= function()
+        vim.g.VM_maps = {
+            ["Select h"] = "",
+            ["Select l"] = "",
+        }
+    end, },
 })
