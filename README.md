@@ -36,8 +36,6 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 [vim-visual-multi](https://github.com/mg979/vim-visual-multi) - Multiline editing
 
-}
-
 ## Requirements
 
 **general**
