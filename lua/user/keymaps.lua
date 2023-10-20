@@ -9,8 +9,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Normal --
-keymap("n", "<C-d>", "<cmd> call smoothie#do('<C-d>zz') <CR>", opts)
-keymap("n", "<C-u>", "<cmd> call smoothie#do('<C-u>zz') <CR>", opts)
 
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)

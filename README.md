@@ -28,7 +28,7 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 [Comment](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim
 
-[vim-smoothie](https://github.com/psliwka/vim-smoothie) - Plugin makes scrolling nice and smooth.
+[cinnamon](https://github.com/declancm/cinnamon.nvim) - Plugin makes scrolling nice and smooth.
 
 [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) - Better folding
 
@@ -64,6 +64,7 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   │   ├── init.lua
 │   │   └── null-ls.lua
 │   ├── autopairs.lua
+│   ├── cinnamon.lua
 │   ├── colorscheme.lua
 │   ├── comment.lua
 │   ├── keymaps.lua

@@ -77,9 +77,6 @@ require("lazy").setup({
 	-- Lualine
 	{ "nvim-lualine/lualine.nvim", commit = "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
 
-	-- Smooth scroll
-	{ "psliwka/vim-smoothie", commit = "df1e324e9f3395c630c1c523d0555a01d2eb1b7e" },
-
 	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", commit = "a896a95851fe5c5adf71a50030d60f8fa488fa7e" },
 
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } },
@@ -91,4 +88,8 @@ require("lazy").setup({
             ["Select l"] = "",
         }
     end, },
+
+    -- Smooth scrolling
+    {'declancm/cinnamon.nvim', branch="master"},
+
 })
