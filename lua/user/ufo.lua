@@ -6,7 +6,10 @@ end
 vim.keymap.set("n", "zR", ufo.openAllFolds)
 vim.keymap.set("n", "zM", ufo.closeAllFolds)
 
-ufo.setup()
+ufo.setup({
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+})
 
 local status_ok, statuscol = pcall(require, "statuscol")
 if not status_ok then
