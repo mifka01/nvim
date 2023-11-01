@@ -1,13 +1,8 @@
-local colorscheme = "rose-pine"
+local colorscheme = "gruvbox-material"
 
-local status_ok, rose = pcall(require, "rose-pine")
-if not status_ok then
-	return
-end
-
-rose.setup({
-	disable_background = true,
-})
+vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_transparent_background = 1
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 

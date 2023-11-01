@@ -24,8 +24,6 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 [lualine](https://github.com/nvim-lualine/lualine.nvim) - Neovim statusline written in Lua
 
-[rose-pine](https://github.com/rose-pine/neovim) - Colorscheme
-
 [Comment](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim
 
 [cinnamon](https://github.com/declancm/cinnamon.nvim) - Plugin makes scrolling nice and smooth.
@@ -35,6 +33,8 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 [statuscol](https://github.com/luukvbaal/statuscol.nvim) - Hide folding numbers (for ufo)
 
 [vim-visual-multi](https://github.com/mg979/vim-visual-multi) - Multiline editing
+
+[nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Color highlighter
 
 ## Requirements
 
@@ -65,6 +65,7 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   │   └── null-ls.lua
 │   ├── autopairs.lua
 │   ├── cinnamon.lua
+│   ├── colorizer.lua
 │   ├── colorscheme.lua
 │   ├── comment.lua
 │   ├── keymaps.lua
@@ -80,7 +81,7 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 
 ## Appearance
 
-**Colorscheme:** [rose-pine](https://github.com/rose-pine/neovim)
+**Colorscheme:** [gruvbox-material](https://github.com/sainnhe/gruvbox-material)
 
 **Icons:** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 

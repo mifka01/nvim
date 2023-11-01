@@ -21,11 +21,11 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
 	{ "numToStr/Comment.nvim", tag = "v0.8.0" }, -- Easily comment stuff
 
-	-- Colorscheme
-	--[[ ({ "morhetz/gruvbox", commit = "bf2885a95efdad7bd5e4794dd0213917770d79b7" }) -- Gruvbox colorscheme ]]
-	-- ({ "nikolvs/vim-sunbather" }) -- Sunbather colorscheme
-	{ "rose-pine/neovim", name = "rose-pine" },
+	-- { "nikolvs/vim-sunbather" }, -- Sunbather colorscheme
+	-- { "rose-pine/neovim", name = "rose-pine" },
+	{ "sainnhe/gruvbox-material", priority = 1000 },
 
+	{ "norcalli/nvim-colorizer.lua" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
@@ -81,15 +81,18 @@ require("lazy").setup({
 
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } },
 
-    -- Multiline editing
-    {'mg979/vim-visual-multi', branch="master", init= function()
-        vim.g.VM_maps = {
-            ["Select h"] = "",
-            ["Select l"] = "",
-        }
-    end, },
+	-- Multiline editing
+	{
+		"mg979/vim-visual-multi",
+		branch = "master",
+		init = function()
+			vim.g.VM_maps = {
+				["Select h"] = "",
+				["Select l"] = "",
+			}
+		end,
+	},
 
-    -- Smooth scrolling
-    {'declancm/cinnamon.nvim', branch="master"},
-
+	-- Smooth scrolling
+	{ "declancm/cinnamon.nvim", branch = "master" },
 })
