@@ -91,4 +91,11 @@ if not status_ok then
 	return
 end
 
-diag.init({ virtual_text = false, underline = false })
+diag.init({
+	virtual_text = false,
+	underline = false,
+	float = {
+		source = "always",
+		border = "single",
+	},
+})

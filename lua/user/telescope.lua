@@ -16,5 +16,6 @@ telescope.setup({
 				preview_width = 0.4,
 			},
 		},
+		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 	},
 })
