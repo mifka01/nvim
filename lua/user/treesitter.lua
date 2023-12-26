@@ -14,21 +14,25 @@ configs.setup({
 	ensure_installed = {
 		"c",
 		"lua",
+		"vim",
+		"vimdoc",
+		"query",
 		"php",
 		"python",
 		"json",
 		"javascript",
+		"typescript",
 		"sql",
-		"vim",
 		"css",
 		"html",
 		"java",
 		"regex",
 	},
 	sync_install = false,
+	auto_install = true,
 	highlight = {
-		enable = true, -- false will disable the whole extension
-		disable = { "css" }, -- list of language that will be disabled
+		enable = true,
+		disable = { "css" },
 		additional_vim_regex_highlighting = false,
 	},
 	autopairs = {
@@ -38,5 +42,43 @@ configs.setup({
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
+	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<Leader>ss",
+			node_incremental = "<Leader>sn",
+			node_decremental = "<Leader>sp",
+			scope_incremental = "<Leader>sc",
+		},
+	},
+
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+				["is"] = { query = "@scope.inner", query_group = "locals", desc = "Select language scope" },
+			},
+			selection_modes = {
+				["@parameter.outer"] = "v", -- charwise
+				["@function.outer"] = "V", -- linewise
+				["@class.outer"] = "<c-v>", -- blockwise
+			},
+			include_surrounding_whitespace = true,
+		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>a"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>A"] = "@parameter.inner",
+			},
+		},
 	},
 })

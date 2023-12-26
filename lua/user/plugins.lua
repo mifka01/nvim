@@ -23,7 +23,7 @@ require("lazy").setup({
 
 	-- { "nikolvs/vim-sunbather" }, -- Sunbather colorscheme
 	-- { "rose-pine/neovim", name = "rose-pine" },
-	{ "sainnhe/gruvbox-material", priority = 1000 },
+	{ "sainnhe/gruvbox-material", priority = 1000, lazy = false },
 
 	{ "norcalli/nvim-colorizer.lua" },
 	{
@@ -54,6 +54,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		tag = "v0.9.1",
 	},
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
 
 	-- Autopairs
 	{ "windwp/nvim-autopairs", event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
@@ -71,7 +72,7 @@ require("lazy").setup({
 	},
 
 	-- Nvim Tree
-	{ "nvim-tree/nvim-web-devicons", commit = "973ab742f143a796a779af4d786ec409116a0d87" },
+	{ "nvim-tree/nvim-web-devicons", commit = "973ab742f143a796a779af4d786ec409116a0d87", lazy = true },
 	{ "nvim-tree/nvim-tree.lua", commit = "a3aa3b47eac8b6289f028743bef4ce9eb0f6782e" },
 
 	-- Lualine
@@ -81,18 +82,8 @@ require("lazy").setup({
 
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } },
 
-	-- Multiline editing
-	{
-		"mg979/vim-visual-multi",
-		branch = "master",
-		init = function()
-			vim.g.VM_maps = {
-				["Select h"] = "",
-				["Select l"] = "",
-			}
-		end,
-	},
+	{ "stevearc/aerial.nvim" },
 
 	-- Smooth scrolling
 	{ "declancm/cinnamon.nvim", branch = "master" },
-})
+}, { ui = { border = "single" } })

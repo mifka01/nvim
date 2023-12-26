@@ -19,8 +19,6 @@ keymap("n", "<leader>Y", '"+Y', opts)
 
 -- Navigate buffers
 keymap("n", "<S-p>", "<C-^>", opts)
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -41,12 +39,11 @@ keymap("x", "<S-Down>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<S-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
-
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>gf", ":Telescope git_files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fm", ":Telescope media_files<CR>", opts)
+keymap("n", "<leader>ff", ":AerialClose<CR>:Telescope find_files<CR>", opts)
+keymap("n", "<leader>gf", ":AerialClose<CR>:Telescope git_files<CR>", opts)
+keymap("n", "<leader>fg", ":AerialClose<CR>:Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fb", ":AerialClose<CR>:Telescope buffers<CR>", opts)
+keymap("n", "<leader>fm", ":AerialClose<CR>:Telescope media_files<CR>", opts)
 
 -- Nvim tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
@@ -56,3 +53,7 @@ keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 
 -- Toggle diagnostics
 keymap("n", "<leader>td", "<Plug>(toggle-lsp-diag-vtext)", opts)
+keymap("n", "<leader>tf", ":lua vim.diagnostic.open_float()<CR>", opts)
+
+-- Toggle aerial
+keymap("n", "<leader>ta", ":AerialToggle<CR>", opts)
