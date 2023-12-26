@@ -6,6 +6,8 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 [lazy](https://github.com/folke/lazy.nvim) - Plugin manager
 
+[aerial](https://github.com/stevearc/aerial.nvim) - A code outline window for skimming and quick navigation
+
 [autopairs](https://github.com/windwp/nvim-autopairs) - A super powerful autopair plugin for Neovim.
 
 [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) - Bundle for CMP and LSP
@@ -15,6 +17,8 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - A File Explorer For Neovim Written In Lua
 
 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
+
+[nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) - Syntax aware text-objects, select, move, swap, and peek support.
 
 [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
@@ -63,6 +67,7 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   ├── lsp
 │   │   ├── init.lua
 │   │   └── null-ls.lua
+│   ├── aerial.lua
 │   ├── autopairs.lua
 │   ├── cinnamon.lua
 │   ├── colorizer.lua
