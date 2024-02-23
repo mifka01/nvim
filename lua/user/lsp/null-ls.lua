@@ -14,7 +14,6 @@ mason_null_ls.setup({
 		"phpcs",
 		"autopep8",
 		"isort",
-		"flake8",
 		"stylua",
 		"prettier",
 		"clang-format",
@@ -49,7 +48,6 @@ null_ls.setup({
 		-- Python
 		formatting.autopep8,
 		formatting.isort,
-		diagnostics.flake8,
 
 		-- PHP
 		formatting.phpcsfixer.with({
