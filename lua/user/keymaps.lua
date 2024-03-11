@@ -39,11 +39,11 @@ keymap("x", "<S-Down>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<S-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
-keymap("n", "<leader>ff", ":AerialClose<CR>:Telescope find_files<CR>", opts)
-keymap("n", "<leader>gf", ":AerialClose<CR>:Telescope git_files<CR>", opts)
-keymap("n", "<leader>fg", ":AerialClose<CR>:Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fb", ":AerialClose<CR>:Telescope buffers<CR>", opts)
-keymap("n", "<leader>fm", ":AerialClose<CR>:Telescope media_files<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>gf", ":Telescope git_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>fm", ":Telescope media_files<CR>", opts)
 
 -- mini.files
 keymap("n", "<leader>e", ":lua MiniFiles.open()<cr>", opts)
