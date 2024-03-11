@@ -51,12 +51,12 @@ null_ls.setup({
 
 		-- PHP
 		formatting.phpcsfixer.with({
-			extra_args = {
-				"--rules=@Symfony,-echo_tag_syntax,-no_alternative_syntax,-semicolon_after_instruction,-trailing_comma_in_multiline",
-			},
+			extra_args = { "--rules=@PEAR" },
 		}),
 
-		diagnostics.phpcs,
+		diagnostics.phpcs.with({
+			extra_args = { "--standard=PEAR" },
+		}),
 
 		-- LUA
 		formatting.stylua,
