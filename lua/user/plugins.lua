@@ -22,8 +22,14 @@ require("lazy").setup({
 	{ "numToStr/Comment.nvim", tag = "v0.8.0" }, -- Easily comment stuff
 
 	-- { "nikolvs/vim-sunbather" }, -- Sunbather colorscheme
-	-- { "rose-pine/neovim", name = "rose-pine" },
-	{ "sainnhe/gruvbox-material", priority = 1000, lazy = false },
+	-- { "mcchrish/zenbones.nvim", dependencies = { "rktjmp/lush.nvim" } },
+	{ "aktersnurra/no-clown-fiesta.nvim", opts = {
+		transparent = true,
+	} },
+	-- { "sainnhe/gruvbox-material", priority = 1000, lazy = false },
+
+	-- { "He4eT/desolate.nvim", dependencies = { "rktjmp/lush.nvim" } },
+	--
 
 	{ "norcalli/nvim-colorizer.lua" },
 	{
@@ -48,7 +54,9 @@ require("lazy").setup({
 			},
 		},
 	},
-
+	{
+		"onsails/lspkind.nvim",
+	},
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -73,17 +81,34 @@ require("lazy").setup({
 
 	-- Nvim Tree
 	{ "nvim-tree/nvim-web-devicons", commit = "973ab742f143a796a779af4d786ec409116a0d87", lazy = true },
-	{ "nvim-tree/nvim-tree.lua", commit = "a3aa3b47eac8b6289f028743bef4ce9eb0f6782e" },
+	{ "echasnovski/mini.files", version = "*" },
 
 	-- Lualine
 	{ "nvim-lualine/lualine.nvim", commit = "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
 
 	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", commit = "a896a95851fe5c5adf71a50030d60f8fa488fa7e" },
 
-	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" } },
-
-	{ "stevearc/aerial.nvim" },
-
 	-- Smooth scrolling
 	{ "declancm/cinnamon.nvim", branch = "master" },
+
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = { max_count = 3 },
+	},
+
+	{
+		"github/copilot.vim",
+		init = function()
+			vim.g.copilot_no_tab_map = true
+		end,
+		config = function()
+			vim.keymap.set("i", "<S-Tab>", [[copilot#Accept("\<CR>")]], {
+				silent = true,
+				expr = true,
+				script = true,
+				replace_keycodes = false,
+			})
+		end,
+	},
 }, { ui = { border = "single" } })

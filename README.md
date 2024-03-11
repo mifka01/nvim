@@ -4,47 +4,41 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 ## Plugins
 
-[lazy](https://github.com/folke/lazy.nvim) - Plugin manager
-
-[aerial](https://github.com/stevearc/aerial.nvim) - A code outline window for skimming and quick navigation
-
 [autopairs](https://github.com/windwp/nvim-autopairs) - A super powerful autopair plugin for Neovim.
+
+[cinnamon](https://github.com/declancm/cinnamon.nvim) - Plugin makes scrolling nice and smooth.
+
+[copilot](https://github.com/github/copilot.vim) - Plugin for GitHub Copilot
+
+[Comment](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim
+
+[lazy](https://github.com/folke/lazy.nvim) - Plugin manager
 
 [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) - Bundle for CMP and LSP
 
-[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - A Lua fork of vim-devicons
+[lualine](https://github.com/nvim-lualine/lualine.nvim) - Neovim statusline written in Lua
 
-[nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) - A File Explorer For Neovim Written In Lua
+[mason-null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Bridges mason.nvim with the null-ls plugin.
+
+[mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md) - File explorer
+
+[nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Color highlighter
 
 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
 
 [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) - Syntax aware text-objects, select, move, swap, and peek support.
 
+[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - A Lua fork of vim-devicons
+
 [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
-[mason-null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Bridges mason.nvim with the null-ls plugin.
-
 [telescope](https://github.com/nvim-treesitter/nvim-treesitter) - Highly extendable fuzzy finder over lists
-
-[lualine](https://github.com/nvim-lualine/lualine.nvim) - Neovim statusline written in Lua
-
-[Comment](https://github.com/numToStr/Comment.nvim) - Smart and Powerful commenting plugin for neovim
-
-[cinnamon](https://github.com/declancm/cinnamon.nvim) - Plugin makes scrolling nice and smooth.
-
-[nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) - Better folding
-
-[statuscol](https://github.com/luukvbaal/statuscol.nvim) - Hide folding numbers (for ufo)
-
-[vim-visual-multi](https://github.com/mg979/vim-visual-multi) - Multiline editing
-
-[nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Color highlighter
 
 ## Requirements
 
 **general**
 
-- [neovim](https://github.com/neovim/neovim) - 0.9.1 version
+- [neovim](https://github.com/neovim/neovim) - 0.9.5 version
 
 **telescope**
 
@@ -67,26 +61,24 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   ├── lsp
 │   │   ├── init.lua
 │   │   └── null-ls.lua
-│   ├── aerial.lua
 │   ├── autopairs.lua
 │   ├── cinnamon.lua
 │   ├── colorizer.lua
 │   ├── colorscheme.lua
 │   ├── comment.lua
+│   ├── files.lua
 │   ├── keymaps.lua
 │   ├── lualine.lua
-│   ├── nvim-tree.lua
 │   ├── options.lua
 │   ├── plugins.lua
 │   ├── telescope.lua
 │   ├── treesitter.lua
-│   └── ufo.lua
 └── init.lua
 ```
 
 ## Appearance
 
-**Colorscheme:** [gruvbox-material](https://github.com/sainnhe/gruvbox-material)
+**Colorscheme:** [no-clown-fiesta](https://github.com/aktersnurra/no-clown-fiesta.nvim)
 
 **Icons:** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 

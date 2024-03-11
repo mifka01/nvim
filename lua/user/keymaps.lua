@@ -45,8 +45,8 @@ keymap("n", "<leader>fg", ":AerialClose<CR>:Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":AerialClose<CR>:Telescope buffers<CR>", opts)
 keymap("n", "<leader>fm", ":AerialClose<CR>:Telescope media_files<CR>", opts)
 
--- Nvim tree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- mini.files
+keymap("n", "<leader>e", ":lua MiniFiles.open()<cr>", opts)
 
 -- Replace
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
@@ -54,6 +54,3 @@ keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 -- Toggle diagnostics
 keymap("n", "<leader>td", "<Plug>(toggle-lsp-diag-vtext)", opts)
 keymap("n", "<leader>tf", ":lua vim.diagnostic.open_float()<CR>", opts)
-
--- Toggle aerial
-keymap("n", "<leader>ta", ":AerialToggle<CR>", opts)
