@@ -56,8 +56,13 @@ if not status_ok then
 	return
 end
 
+local status_ok, lspkind = pcall(require, "lspkind")
+if not status_ok then
+	return
+end
+
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_format = lsp.cmp_format()
+local cmp_format = lspkind.cmp_format()
 local cmp_action = lsp.cmp_action()
 
 local status_ok, snippets = pcall(require, "luasnip.loaders.from_vscode")
@@ -72,10 +77,22 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 	},
-	formatting = cmp_format,
+	formatting = {
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. (strings[1] or "") .. " "
+			kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+			return kind
+		end,
+	},
+	view = {
+		entries = { name = "custom", selection_order = "near_cursor" },
+	},
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp_action.luasnip_supertab(),
-		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	}),
 	window = {
@@ -95,7 +112,11 @@ diag.init({
 	virtual_text = false,
 	underline = false,
 	float = {
+		focusable = false,
+		style = "minimal",
 		source = "always",
 		border = "single",
+		header = "",
+		prefix = "",
 	},
 })
