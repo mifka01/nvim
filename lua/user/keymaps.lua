@@ -45,8 +45,8 @@ keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fm", ":Telescope media_files<CR>", opts)
 
--- mini.files
-keymap("n", "<leader>e", ":lua MiniFiles.open()<cr>", opts)
+-- oil
+keymap("n", "<leader>e", "<CMD>Oil<CR>", opts)
 
 -- Replace
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)

@@ -20,8 +20,6 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 
 [mason-null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Bridges mason.nvim with the null-ls plugin.
 
-[mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md) - File explorer
-
 [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Color highlighter
 
 [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
@@ -31,6 +29,8 @@ This config is based on [neovim-from-scratch](https://github.com/LunarVim/Neovim
 [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - A Lua fork of vim-devicons
 
 [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) - Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
+
+[oil](https://github.com/stevearc/oil.nvim) - Edit your filesystem like a normal Neovim buffer.
 
 [telescope](https://github.com/nvim-treesitter/nvim-treesitter) - Highly extendable fuzzy finder over lists
 
@@ -66,9 +66,9 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   ├── colorizer.lua
 │   ├── colorscheme.lua
 │   ├── comment.lua
-│   ├── files.lua
 │   ├── keymaps.lua
 │   ├── lualine.lua
+│   ├── oil.lua
 │   ├── options.lua
 │   ├── plugins.lua
 │   ├── telescope.lua

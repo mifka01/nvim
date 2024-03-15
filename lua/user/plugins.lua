@@ -78,10 +78,11 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
 	},
-
-	-- Nvim Tree
-	{ "nvim-tree/nvim-web-devicons", commit = "973ab742f143a796a779af4d786ec409116a0d87", lazy = true },
-	{ "echasnovski/mini.files", version = "*" },
+	-- Oil
+    {
+      'stevearc/oil.nvim',
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
 	-- Lualine
 	{ "nvim-lualine/lualine.nvim", commit = "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
@@ -101,6 +102,7 @@ require("lazy").setup({
 		"github/copilot.vim",
 		init = function()
 			vim.g.copilot_no_tab_map = true
+			vim.g.copilot_enabled = false
 		end,
 		config = function()
 			vim.keymap.set("i", "<S-Tab>", [[copilot#Accept("\<CR>")]], {
