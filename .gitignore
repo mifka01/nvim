@@ -3,5 +3,4 @@ package.json
 package-lock.json
 node_modules/
 .php-cs-fixer.cache
-plugin/
 lazy-lock.json
