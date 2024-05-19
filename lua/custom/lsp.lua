@@ -4,6 +4,11 @@ if pcall(require, "cmp_nvim_lsp") then
 	capabilities = require("cmp_nvim_lsp").default_capabilities()
 end
 
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+}
+
 local lspconfig = require("lspconfig")
 
 local servers = {
@@ -14,7 +19,8 @@ local servers = {
 
 	clangd = {
 		init_options = { clangdFileStatus = true },
-		filetypes = { "c" },
+		filetypes = { "c", "cpp" },
+		cmd = { "clangd", "--offset-encoding=utf-16" },
 	},
 }
 
@@ -29,8 +35,11 @@ end, vim.tbl_keys(servers))
 
 require("mason").setup()
 local ensure_installed = {
+	"clangd",
+	"clang-format",
 	"stylua",
 	"lua_ls",
+	"prettier",
 }
 
 vim.list_extend(ensure_installed, servers_to_install)
@@ -42,6 +51,7 @@ for name, config in pairs(servers) do
 	end
 	config = vim.tbl_deep_extend("force", {}, {
 		capabilities = capabilities,
+		handlers = handlers,
 	}, config)
 
 	lspconfig[name].setup(config)
@@ -77,6 +87,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
+		cpp = { "clang_format" },
+		c = { "clang_format" },
+		javascript = { "prettier" },
 	},
 })
 
