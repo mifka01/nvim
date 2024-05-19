@@ -1,13 +1,21 @@
-require("user.options")
-require("user.plugins")
-require("user.keymaps")
-require("user.colorscheme")
-require("user.lsp")
-require("user.telescope")
-require("user.treesitter")
-require("user.autopairs")
-require("user.oil")
-require("user.comment")
-require("user.lualine")
-require("user.cinnamon")
-require("user.colorizer")
+vim.g.mapleader = " "
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.uv.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({ import = "custom/plugins" }, {
+	change_detection = {
+		notify = false,
+	},
+})
