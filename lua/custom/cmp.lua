@@ -1,9 +1,10 @@
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.shortmess:append("c")
 
-local lspkind = require("lspkind")
-lspkind.init({})
+-- number of lines in cmp window
+vim.opt.pumheight = 10
 
+local lspkind = require("lspkind")
 local cmp = require("cmp")
 
 cmp.setup({
@@ -29,6 +30,22 @@ cmp.setup({
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
 		end,
+	},
+
+	formatting = {
+		fields = { "abbr", "kind", "menu" },
+		expandable_indicator = true,
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 50,
+			ellipsis_char = "...",
+
+			-- https://github.com/hrsh7th/nvim-cmp/issues/1913
+			before = function(_, vim_item)
+				vim_item.menu = ({ nvim_lsp = "" })["clangd"]
+				return vim_item
+			end,
+		}),
 	},
 
 	window = {
