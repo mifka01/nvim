@@ -7,6 +7,9 @@ set("", "<Space>", "<Nop>")
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
+
 set("n", "<leader>y", '"+y')
 set("v", "<leader>y", '"+y')
 set("n", "<leader>Y", '"+Y')
