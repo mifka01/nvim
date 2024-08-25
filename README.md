@@ -30,6 +30,7 @@ git clone https://github.com/mifka01/nvim.git ~/.config/nvim
 │   │   ├── Comment.lua
 │   │   ├── Copilot.lua
 │   │   ├── autopairs.lua
+│   │   ├── bigfile.lua
 │   │   ├── cmp.lua
 │   │   ├── colorizer.lua
 │   │   ├── colorscheme.lua
