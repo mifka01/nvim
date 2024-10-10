@@ -15,7 +15,8 @@ local servers = {
 	bashls = true,
 	lua_ls = true,
 	cssls = true,
-	tsserver = true,
+	ts_ls = true,
+	phpactor = true,
 
 	clangd = {
 		init_options = { clangdFileStatus = true },
@@ -38,8 +39,14 @@ local ensure_installed = {
 	"clangd",
 	"clang-format",
 	"stylua",
+	"ts_ls",
 	"lua_ls",
 	"prettier",
+
+	"phpactor",
+	"phpcs",
+	"phpstan",
+	"phpcbf",
 }
 
 vim.list_extend(ensure_installed, servers_to_install)
@@ -90,6 +97,7 @@ require("conform").setup({
 		cpp = { "clang_format" },
 		c = { "clang_format" },
 		javascript = { "prettier" },
+		php = { "phpcbf" },
 	},
 })
 
