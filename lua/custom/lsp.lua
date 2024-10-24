@@ -17,6 +17,7 @@ local servers = {
 	cssls = true,
 	ts_ls = true,
 	phpactor = true,
+	tailwindcss = true,
 
 	clangd = {
 		init_options = { clangdFileStatus = true },
@@ -42,6 +43,7 @@ local ensure_installed = {
 	"ts_ls",
 	"lua_ls",
 	"prettier",
+	"tailwindcss",
 
 	"phpactor",
 	"phpcs",
@@ -79,6 +81,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
 		vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+		vim.keymap.set("n", "<leader>K", vim.diagnostic.open_float, { buffer = 0 })
 
 		vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { buffer = 0 })
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = 0 })
