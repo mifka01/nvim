@@ -3,6 +3,7 @@ local data = assert(vim.fn.stdpath("data")) --[[@as string]]
 require("telescope").setup({
 	extensions = {
 		smart_open = {
+			cwd_only = true,
 			match_algorithm = "fzf",
 			disable_devicons = false,
 		},
