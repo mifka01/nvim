@@ -2,6 +2,8 @@ local opt = vim.opt
 
 opt.inccommand = "split"
 
+opt.list = true
+
 opt.smartcase = true
 opt.ignorecase = true
 

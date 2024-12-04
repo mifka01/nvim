@@ -18,6 +18,7 @@ local servers = {
 	ts_ls = true,
 	phpactor = true,
 	tailwindcss = true,
+	pyright = true,
 
 	clangd = {
 		init_options = { clangdFileStatus = true },
@@ -39,9 +40,12 @@ require("mason").setup()
 local ensure_installed = {
 	"clangd",
 	"clang-format",
+
 	"stylua",
-	"ts_ls",
 	"lua_ls",
+
+	"ts_ls",
+
 	"prettier",
 	"tailwindcss",
 
@@ -49,6 +53,10 @@ local ensure_installed = {
 	"phpcs",
 	"phpstan",
 	"phpcbf",
+
+	"pyright",
+	"black",
+	"ruff",
 }
 
 vim.list_extend(ensure_installed, servers_to_install)
@@ -101,6 +109,7 @@ require("conform").setup({
 		c = { "clang_format" },
 		javascript = { "prettier" },
 		php = { "phpcbf" },
+		python = { "black", "isort" },
 	},
 })
 
