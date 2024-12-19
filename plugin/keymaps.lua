@@ -17,6 +17,10 @@ set("n", "<leader>Y", '"+Y')
 -- Navigate buffers
 set("n", "<S-p>", "<C-^>")
 
+set("n", "<leader><leader>x", "<cmd>source %<CR>")
+set("n", "<leader>x", ":.lua<CR>")
+set("v", "<leader>x", ":lua<CR>")
+
 -- Visual --
 -- Stay in indent mode
 set("v", "<", "<gv")
@@ -29,7 +33,3 @@ set("x", "K", ":move '<-2<CR>gv-gv")
 
 -- Replace
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Toggle diagnostics
--- set("n", "<leader>td", "<Plug>(toggle-lsp-diag-vtext)")
--- set("n", "<leader>tf", ":lua vim.diagnostic.open_float()<CR>")

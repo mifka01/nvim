@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+opt.background = "dark"
+
 opt.inccommand = "split"
 
 opt.list = true
