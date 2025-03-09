@@ -33,7 +33,6 @@ return {
 				},
 			},
 			quickfile = { enabled = true },
-			scroll = { enabled = true },
 		},
 		keys = {
 			-- find
