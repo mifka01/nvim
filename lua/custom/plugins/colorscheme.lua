@@ -2,16 +2,14 @@
 return {
 	{
 		-- "aktersnurra/no-clown-fiesta.nvim",
-		"p00f/alabaster.nvim",
+		-- "miikanissi/modus-themes.nvim",
+		"bluz71/vim-moonfly-colors",
 
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("alabaster")
-			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-			vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-			vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+			-- vim.cmd.colorscheme("no-clown-fiesta")
+			vim.cmd.colorscheme("moonfly")
 		end,
 	},
 }

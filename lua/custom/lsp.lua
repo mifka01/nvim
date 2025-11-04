@@ -1,18 +1,38 @@
-require("neodev").setup({})
-
-local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
-}
+local php_tools = require("custom.php-tools")
 
 local lspconfig = require("lspconfig")
 
+local project_root = vim.fn.getcwd()
+
+vim.g.ale_linters = {
+	php = { "phpstan" },
+}
+
+vim.g.ale_php_phpstan_executable = project_root .. "/phpstan"
+
+if string.find(vim.fn.getcwd(), "xaver") then
+	vim.g.ale_filename_mappings = {
+		phpstan = {
+			{ project_root .. "/app", "/var/www/" },
+			{ project_root .. "/bundles", "/var/bundles/" },
+		},
+	}
+else
+	vim.g.ale_filename_mappings = {
+		phpstan = {
+			{ project_root .. "/", "/var/www/" },
+		},
+	}
+end
+
+vim.g.ale_php_phpstan_use_global = 1
+vim.g.ale_linters_explicit = 1
+
 local servers = {
 	bashls = true,
-	lua_ls = true,
 	cssls = true,
 	ts_ls = true,
-	phpactor = true,
+	lua_ls = true,
 	tailwindcss = true,
 	pyright = true,
 
@@ -21,41 +41,37 @@ local servers = {
 		filetypes = { "c", "cpp" },
 		cmd = { "clangd", "--offset-encoding=utf-16" },
 	},
-}
 
-local servers_to_install = vim.tbl_filter(function(key)
-	local t = servers[key]
-	if type(t) == "table" then
-		return not t.manual_install
-	else
-		return t
-	end
-end, vim.tbl_keys(servers))
+	intelephense = {
+		settings = {
+			intelephense = {
+				files = {
+					exclude = php_tools.build_vendor_excludes(),
+				},
+			},
+		},
+	},
+}
 
 require("mason").setup()
 local ensure_installed = {
+	"bashls",
+	"cssls",
+
 	"clangd",
 	"clang-format",
-
-	"stylua",
-	"lua_ls",
 
 	"ts_ls",
 
 	"prettier",
 	"tailwindcss",
 
-	"phpactor",
-	"phpcs",
-	"phpstan",
-	"phpcbf",
+	"php-cs-fixer",
 
 	"pyright",
 	"black",
 	"isort",
 }
-
-vim.list_extend(ensure_installed, servers_to_install)
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 for name, config in pairs(servers) do
@@ -64,7 +80,6 @@ for name, config in pairs(servers) do
 	end
 	config = vim.tbl_deep_extend("force", {}, {
 		capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities),
-		handlers = handlers,
 	}, config)
 
 	lspconfig[name].setup(config)
@@ -83,6 +98,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
 		vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
 		vim.keymap.set("n", "<leader>K", vim.diagnostic.open_float, { buffer = 0 })
@@ -104,8 +120,25 @@ require("conform").setup({
 		cpp = { "clang_format" },
 		c = { "clang_format" },
 		javascript = { "prettier" },
-		php = { "phpcbf" },
+		yaml = { "prettier" },
+		yml = { "prettier" },
 		python = { "black", "isort" },
+		php = { "php" },
+	},
+	formatters = {
+		php = {
+			command = "php-cs-fixer",
+			args = function()
+				local args = { "fix", "$FILENAME" }
+				local config = php_tools.find_php_cs_fixer_config()
+				if config then
+					table.insert(args, "--config=" .. config)
+				end
+				table.insert(args, "--allow-risky=yes")
+				return args
+			end,
+			stdin = false,
+		},
 	},
 })
 

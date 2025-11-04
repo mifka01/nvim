@@ -21,13 +21,11 @@ lualine.setup({
 			},
 		},
 		lualine_b = {
-			{
-				"filename",
-				file_status = true,
-				path = 4,
-				shorting_target = 40,
-			},
-			branch,
+            {
+              'filename',
+              path = 1,
+              shorting_target = 50,
+            }
 		},
 		lualine_c = {},
 		lualine_x = {

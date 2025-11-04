@@ -33,3 +33,11 @@ set("x", "K", ":move '<-2<CR>gv-gv")
 
 -- Replace
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Git
+set("n", "<leader>gh", ":0Gclog<CR>")
+set("n", "<leader>gb", ":Gitsigns blame_line<CR>")
+set("n", "<leader>ds", ":Gdiffsplit<CR>")
+
+-- Undotree
+set("n", "<leader>ut", ":UndotreeToggle<CR>")
