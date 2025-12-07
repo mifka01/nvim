@@ -1,32 +1,6 @@
-local php_tools = require("custom.php-tools")
-
+local workspace = require("custom.workspace")
 local lspconfig = require("lspconfig")
-
-local project_root = vim.fn.getcwd()
-
-vim.g.ale_linters = {
-	php = { "phpstan" },
-}
-
-vim.g.ale_php_phpstan_executable = project_root .. "/phpstan"
-
-if string.find(vim.fn.getcwd(), "xaver") then
-	vim.g.ale_filename_mappings = {
-		phpstan = {
-			{ project_root .. "/app", "/var/www/" },
-			{ project_root .. "/bundles", "/var/bundles/" },
-		},
-	}
-else
-	vim.g.ale_filename_mappings = {
-		phpstan = {
-			{ project_root .. "/", "/var/www/" },
-		},
-	}
-end
-
-vim.g.ale_php_phpstan_use_global = 1
-vim.g.ale_linters_explicit = 1
+require("custom.lsp.vimfony")
 
 local servers = {
 	bashls = true,
@@ -46,7 +20,7 @@ local servers = {
 		settings = {
 			intelephense = {
 				files = {
-					exclude = php_tools.build_vendor_excludes(),
+					exclude = workspace.get_vendor_excludes(),
 				},
 			},
 		},
@@ -123,14 +97,14 @@ require("conform").setup({
 		yaml = { "prettier" },
 		yml = { "prettier" },
 		python = { "black", "isort" },
-		php = { "php" },
+		php = { "php_cs_fixer" },
 	},
 	formatters = {
-		php = {
+		php_cs_fixer = {
 			command = "php-cs-fixer",
 			args = function()
 				local args = { "fix", "$FILENAME" }
-				local config = php_tools.find_php_cs_fixer_config()
+				local config = workspace.find("php_cs_config")
 				if config then
 					table.insert(args, "--config=" .. config)
 				end

@@ -66,7 +66,7 @@ vim.diagnostic.config({
 	},
 })
 
-vim.lsp.inlay_hint.enable(true)
+vim.lsp.inlay_hint.enable(false)
 
 vim.api.nvim_set_hl(0, "DiagnosticFloatingBorder", { fg = "#6272A4" })
 local underline_groups = {

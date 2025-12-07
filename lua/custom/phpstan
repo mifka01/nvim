@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+strip_ansi() {
+    sed -r 's/\x1B\[[0-9;?]*[0-9A-Za-z]//g; s/\x1B\[[0-9;?]*//g'
+}
+
+set -euo pipefail
+
+PROJECT_BASE="$(pwd)"
+SUBDIR_NAME="app"
+
+SHOULD_FILTER_OUTPUT=1
+
+if [ $# -eq 0 ]; then
+    echo "Error: Must be called with 'analyze ...' or '--version'." >&2
+    exit 1
+fi
+
+ARG_ONE="$1"
+
+if [[ "$ARG_ONE" == "--version" ]]; then
+    SHOULD_FILTER_OUTPUT=0
+elif [[ "$ARG_ONE" == "analyze" ]]; then
+    shift
+else
+    echo "Error: Unsupported argument '$ARG_ONE'. Must be 'analyze' or '--version'." >&2
+    exit 1
+fi
+
+RUN_SCRIPT_SUBDIR="$PROJECT_BASE/$SUBDIR_NAME/run"
+RUN_SCRIPT_ROOT="$PROJECT_BASE/run"
+
+EXEC_DIR=""
+TARGET_RUN_SCRIPT="./run"
+
+if [ -n "$SUBDIR_NAME" ] && [ -x "$RUN_SCRIPT_SUBDIR" ]; then
+    EXEC_DIR="$PROJECT_BASE/$SUBDIR_NAME"
+elif [ -x "$RUN_SCRIPT_ROOT" ]; then
+    EXEC_DIR="$PROJECT_BASE"
+else
+    echo "Error: Could not find executable run script in '$RUN_SCRIPT_SUBDIR' or '$RUN_SCRIPT_ROOT'." >&2
+    exit 1
+fi
+
+cd "$EXEC_DIR"
+
+OUTPUT_AND_STATUS=$(script -q /dev/null -c "./run phpstan $*" )
+
+EXIT_CODE=$?
+
+if [ "$SHOULD_FILTER_OUTPUT" -eq 1 ]; then
+    echo "$OUTPUT_AND_STATUS" | strip_ansi | grep -E -o '\{"totals.*'
+else
+    echo "$OUTPUT_AND_STATUS" | strip_ansi | grep -v 'Container' | grep -E 'PHPStan|([0-9]+\.){1,}'
+fi
+
+cd "$OLDPWD" || true
+
+exit $EXIT_CODE
+

@@ -42,6 +42,18 @@ return {
 						truncate = 100,
 					},
 				},
+				win = {
+					input = {
+						keys = {
+							["<c-a>"] = { "toggle_ignored", mode = { "i", "n" } },
+						},
+					},
+					list = {
+						keys = {
+							["<c-a>"] = { "toggle_ignored", mode = { "i", "n" } },
+						},
+					},
+				},
 				sources = {
 					explorer = {
 						layout = {
@@ -70,40 +82,26 @@ return {
 			},
 			quickfile = { enabled = true },
 		},
-		win = {
-			list = {
-				keys = {
-					["<c-i>"] = { "inspect", mode = { "i", "n" } },
-				},
-			},
-		},
 		keys = {
 			-- find
 			{
 				"<leader>ff",
 				function()
-					Snacks.picker.smart({ filter = { cwd = true }, hidden = true })
+					Snacks.picker.smart({ hidden = true })
 				end,
 				desc = "Smart Find Files",
 			},
 			{
-				"<leader>fa",
-				function()
-					Snacks.picker.files({ filter = { cwd = true }, ignored = true, hidden = true })
-				end,
-				desc = "Find in all files",
-			},
-			{
 				"<leader>fb",
 				function()
-					Snacks.picker.buffers()
+					Snacks.picker.buffers({ hidden = true })
 				end,
 				desc = "Buffers",
 			},
 			{
 				"<leader>fg",
 				function()
-					Snacks.picker.grep()
+					Snacks.picker.grep({ hidden = true })
 				end,
 				desc = "Grep",
 			},
