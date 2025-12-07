@@ -2,7 +2,7 @@
 
 This config is based on [kickstart](https://github.com/nvim-lua/kickstart.nvim/) and [tjdevries-config](https://github.com/tjdevries/config.nvim).
 It's focused on PHP/Symfony development, but it has support for other languages as well.
-In section "Stuff you might want to disable" you can find instructions how to disable PHP/Symfony specific stuff.
+In section [Stuff you might want to disable](#stuff-you-might-want-to-disable) you can find instructions how to disable PHP/Symfony specific stuff.
 
 
 ## Requirements
@@ -21,10 +21,11 @@ In section "Stuff you might want to disable" you can find instructions how to di
 - [stylua](https://github.com/JohnnyMorganz/StyLua) - Lua code formatter
 - [intelephense](https://intelephense.com/) - PHP language server
 - [vimfony](https://github.com/shinyvision/vimfony) - Symfony support for Neovim/Vim.
+
 Those can be installed via your package manager or [mason.nvim](https://github.com/mason-org/mason.nvim) if you prefer that.
 I prefer to install those few via package manager, because I use NixOS and it's easier for me to manage those that way.
 
-Mason is already included in this config and is installing some tools automatically. you can check `:Mason` for more information.
+Mason is already included in this config and is installing some tools automatically. you can check `:Mason` or `lua/custom/lsp.lua` file to see which tools are installed via Mason.
 
 Vimfony is in pretty early stage, so not all features may work as expected in this config.
 
