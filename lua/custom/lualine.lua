@@ -21,11 +21,14 @@ lualine.setup({
 			},
 		},
 		lualine_b = {
-            {
-              'filename',
-              path = 1,
-              shorting_target = 50,
-            }
+			{
+				function()
+					return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+				end,
+				cond = hide_in_width,
+				separator = "",
+			},
+			{ "filename", file_status = true, newfile_status = true, path = 1 },
 		},
 		lualine_c = {},
 		lualine_x = {
