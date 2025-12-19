@@ -5,6 +5,7 @@ return {
 		lazy = false,
 		---@type snacks.Config
 		opts = {
+			indent = { enable = true },
 			bigfile = {
 				enabled = true,
 				size = 1 * 1024 * 1024, -- 1MB
@@ -87,7 +88,7 @@ return {
 			{
 				"<leader>ff",
 				function()
-					Snacks.picker.smart({ hidden = true })
+					Snacks.picker.smart({ hidden = true, filter = { cwd = true } })
 				end,
 				desc = "Smart Find Files",
 			},

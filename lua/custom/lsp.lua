@@ -1,5 +1,4 @@
 local workspace = require("custom.workspace")
-local lspconfig = require("lspconfig")
 require("custom.lsp.vimfony")
 
 local servers = {
@@ -39,6 +38,7 @@ local ensure_installed = {
 
 	"prettier",
 	"tailwindcss",
+	"djlint",
 
 	"php-cs-fixer",
 
@@ -56,7 +56,8 @@ for name, config in pairs(servers) do
 		capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities),
 	}, config)
 
-	lspconfig[name].setup(config)
+	vim.lsp.config[name] = config
+	vim.lsp.enable(name)
 end
 
 local disable_semantic_tokens = {
@@ -94,10 +95,12 @@ require("conform").setup({
 		cpp = { "clang_format" },
 		c = { "clang_format" },
 		javascript = { "prettier" },
+		html = { "prettier" },
 		yaml = { "prettier" },
 		yml = { "prettier" },
 		python = { "black", "isort" },
 		php = { "php_cs_fixer" },
+		twig = { "djlint" },
 	},
 	formatters = {
 		php_cs_fixer = {
@@ -112,6 +115,11 @@ require("conform").setup({
 				return args
 			end,
 			stdin = false,
+		},
+		djlint = {
+			command = "djlint",
+			args = { "--reformat", "-", "--max-attribute-length", "120", "--max-blank-lines", "1" },
+			stdin = true,
 		},
 	},
 })
