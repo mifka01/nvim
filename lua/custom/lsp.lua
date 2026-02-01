@@ -3,10 +3,8 @@ require("custom.lsp.vimfony")
 
 local servers = {
 	bashls = true,
-	cssls = true,
 	ts_ls = true,
 	lua_ls = true,
-	tailwindcss = true,
 	pyright = true,
 
 	clangd = {
@@ -25,28 +23,6 @@ local servers = {
 		},
 	},
 }
-
-require("mason").setup()
-local ensure_installed = {
-	"bashls",
-	"cssls",
-
-	"clangd",
-	"clang-format",
-
-	"ts_ls",
-
-	"prettier",
-	"tailwindcss",
-	"djlint",
-
-	"php-cs-fixer",
-
-	"pyright",
-	"black",
-	"isort",
-}
-require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 for name, config in pairs(servers) do
 	if config == true then
@@ -100,7 +76,7 @@ require("conform").setup({
 		yml = { "prettier" },
 		python = { "black", "isort" },
 		php = { "php_cs_fixer" },
-		twig = { "djlint" },
+		-- twig = { "djlint" },
 	},
 	formatters = {
 		php_cs_fixer = {

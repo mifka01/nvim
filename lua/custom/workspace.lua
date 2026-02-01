@@ -79,4 +79,73 @@ function M.get_vendor_excludes()
 	return excludes
 end
 
+function M.find_root(bufnr)
+	local bufname = vim.api.nvim_buf_get_name(bufnr or 0)
+	if bufname == "" then
+		return vim.fn.getcwd()
+	end
+
+	local markers = { ".git", "composer.json", "phpstan.neon", ".php-cs-fixer.php", "run" }
+	local dir = vim.fn.fnamemodify(bufname, ":h")
+
+	while dir ~= "/" and dir ~= "" do
+		for _, marker in ipairs(markers) do
+			if uv.fs_stat(dir .. "/" .. marker) then
+				return dir
+			end
+		end
+		dir = vim.fn.fnamemodify(dir, ":h")
+	end
+
+	return vim.fn.getcwd()
+end
+
+function M.is_xaver_project()
+	local cwd = vim.fn.getcwd()
+	return cwd:match("xaver") ~= nil or uv.fs_stat(cwd .. "/bundles")
+end
+
+function M.get_lint_root()
+	if M.is_xaver_project() then
+		return vim.fn.getcwd()
+	else
+		return M.find_root(0)
+	end
+end
+
+function M.get_container_path(bufname)
+	bufname = bufname or vim.api.nvim_buf_get_name(0)
+	local root = M.get_lint_root()
+
+	if M.is_xaver_project() then
+		if bufname:match("^" .. vim.pesc(root .. "/app/")) then
+			return bufname:gsub("^" .. vim.pesc(root .. "/app/"), "/var/www/")
+		elseif bufname:match("^" .. vim.pesc(root .. "/bundles/")) then
+			return bufname:gsub("^" .. vim.pesc(root .. "/bundles/"), "/var/bundles/")
+		end
+	else
+		if bufname:match("^" .. vim.pesc(root .. "/")) then
+			return bufname:gsub("^" .. vim.pesc(root .. "/"), "/var/www/")
+		end
+	end
+	return bufname
+end
+
+function M.get_local_path(container_path)
+	local root = M.get_lint_root()
+
+	if M.is_xaver_project() then
+		if container_path:match("^/var/www/") then
+			return container_path:gsub("^/var/www/", root .. "/app/")
+		elseif container_path:match("^/var/bundles/") then
+			return container_path:gsub("^/var/bundles/", root .. "/bundles/")
+		end
+	else
+		if container_path:match("^/var/www/") then
+			return container_path:gsub("^/var/www/", root .. "/")
+		end
+	end
+	return container_path
+end
+
 return M
