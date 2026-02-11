@@ -7,6 +7,20 @@ local servers = {
 	lua_ls = true,
 	pyright = true,
 
+	twiggy_language_server = {
+		settings = {
+			twiggy = {
+				framework = "symfony",
+				-- https://github.com/moetelo/twiggy/pull/72
+				-- phpExecutable = vim.fn.stdpath("config") .. "/lua/custom/php",
+				symfonyConsolePath = "bin/console",
+				diagnostics = {
+					twigCsFixer = true,
+				},
+			},
+		},
+	},
+
 	clangd = {
 		init_options = { clangdFileStatus = true },
 		filetypes = { "c", "cpp" },
@@ -14,8 +28,12 @@ local servers = {
 	},
 
 	intelephense = {
+		root_dir = workspace.find_root(0),
 		settings = {
 			intelephense = {
+				environment = {
+					documentRoot = workspace.find_root(0),
+				},
 				files = {
 					exclude = workspace.get_vendor_excludes(),
 				},
@@ -71,12 +89,10 @@ require("conform").setup({
 		cpp = { "clang_format" },
 		c = { "clang_format" },
 		javascript = { "prettier" },
-		html = { "prettier" },
 		yaml = { "prettier" },
 		yml = { "prettier" },
 		python = { "black", "isort" },
 		php = { "php_cs_fixer" },
-		-- twig = { "djlint" },
 	},
 	formatters = {
 		php_cs_fixer = {
@@ -92,11 +108,11 @@ require("conform").setup({
 			end,
 			stdin = false,
 		},
-		djlint = {
-			command = "djlint",
-			args = { "--reformat", "-", "--max-attribute-length", "120", "--max-blank-lines", "1" },
-			stdin = true,
-		},
+		-- djlint = {
+		-- 	command = "djlint",
+		-- 	args = { "--reformat", "-", "--max-attribute-length", "120", "--max-blank-lines", "1" },
+		-- 	stdin = true,
+		-- },
 	},
 })
 

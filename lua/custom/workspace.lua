@@ -91,7 +91,9 @@ function M.find_root(bufnr)
 	while dir ~= "/" and dir ~= "" do
 		for _, marker in ipairs(markers) do
 			if uv.fs_stat(dir .. "/" .. marker) then
-				return dir
+				if not dir:match("/vendor/") then
+					return dir
+				end
 			end
 		end
 		dir = vim.fn.fnamemodify(dir, ":h")
