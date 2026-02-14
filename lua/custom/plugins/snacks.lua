@@ -1,3 +1,14 @@
+local exclude_patterns = {
+	"**/cache/**",
+	"**/.cache/**",
+	"**/.git/**",
+	"**/__snapshots__/**",
+	"**/build/admin/**",
+	"**/var/translations/**",
+	"**/var/log/**",
+	"**/Sulu/**/js/**/tests/**",
+}
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -17,6 +28,22 @@ return {
 			},
 			picker = {
 				enabled = true,
+				exclude = exclude_patterns,
+				actions = {
+					toggle_exclude = function(state)
+						local is_excluded = not (state.opts.exclude == false)
+
+						if is_excluded then
+							-- default is to exclude files
+							state.opts.ignored = true
+							state.opts.exclude = false
+						else
+							state.opts.ignored = false
+							state.opts.exclude = exclude_patterns
+						end
+						state:find()
+					end,
+				},
 				layout = {
 					preview = false,
 					layout = {
@@ -47,11 +74,13 @@ return {
 					input = {
 						keys = {
 							["<c-a>"] = { "toggle_ignored", mode = { "i", "n" } },
+							["<c-e>"] = { "toggle_exclude", mode = { "i", "n" } },
 						},
 					},
 					list = {
 						keys = {
 							["<c-a>"] = { "toggle_ignored", mode = { "i", "n" } },
+							["<c-e>"] = { "toggle_exclude", mode = { "i", "n" } },
 						},
 					},
 				},
@@ -88,7 +117,10 @@ return {
 			{
 				"<leader>ff",
 				function()
-					Snacks.picker.smart({ hidden = true, filter = { cwd = true } })
+					Snacks.picker.smart({
+						hidden = true,
+						filter = { cwd = true },
+					})
 				end,
 				desc = "Smart Find Files",
 			},

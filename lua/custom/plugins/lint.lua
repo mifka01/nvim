@@ -3,7 +3,6 @@ local workspace = require("custom.workspace")
 return {
 	{
 		"mfussenegger/nvim-lint",
-		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local lint = require("lint")
 
@@ -52,7 +51,7 @@ return {
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 				group = lint_augroup,
 				callback = function()
 					lint.try_lint(nil, { cwd = workspace.get_lint_root() })
