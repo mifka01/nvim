@@ -53,6 +53,7 @@ return {
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 				group = lint_augroup,
+				pattern = "*.php",
 				callback = function()
 					lint.try_lint(nil, { cwd = workspace.get_lint_root() })
 				end,
