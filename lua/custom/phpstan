@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
+# Function to strip ANSI codes (colors)
 strip_ansi() {
     sed -r 's/\x1B\[[0-9;?]*[0-9A-Za-z]//g; s/\x1B\[[0-9;?]*//g'
 }
 
-set -euo pipefail
+set -u # We remove 'set -e' and 'pipefail' here to handle exit codes manually
 
 PROJECT_BASE="$(pwd)"
 SUBDIR_NAME="app"
@@ -43,17 +44,14 @@ fi
 
 cd "$EXEC_DIR"
 
-OUTPUT_AND_STATUS=$(script -q /dev/null -c "./run phpstan $*" )
-
-EXIT_CODE=$?
-
 if [ "$SHOULD_FILTER_OUTPUT" -eq 1 ]; then
-    echo "$OUTPUT_AND_STATUS" | strip_ansi | grep -E -o '\{"totals.*'
+    ./run phpstan "$@" 2>&1 | strip_ansi | grep --line-buffered -E -o '\{"totals.*'
+    EXIT_CODE=${PIPESTATUS[0]}
 else
-    echo "$OUTPUT_AND_STATUS" | strip_ansi | grep -v 'Container' | grep -E 'PHPStan|([0-9]+\.){1,}'
+    ./run phpstan "$@" 2>&1 | strip_ansi | grep --line-buffered -v 'Container' | grep -E 'PHPStan|([0-9]+\.){1,}'
+    EXIT_CODE=${PIPESTATUS[0]}
 fi
 
 cd "$OLDPWD" || true
 
 exit $EXIT_CODE
-

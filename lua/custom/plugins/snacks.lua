@@ -124,6 +124,7 @@ return {
 				end,
 				desc = "Smart Find Files",
 			},
+
 			{
 				"<leader>fb",
 				function()
@@ -138,12 +139,34 @@ return {
 				end,
 				desc = "Grep",
 			},
+
+		{
+			"<leader>fr",
+			function()
+				Snacks.picker.resume()
+			end,
+			desc = "Resume Last Picker",
+		},
+		{
+			"<leader>fh",
+			function()
+				Snacks.picker.help()
+			end,
+			desc = "Help Pages",
+		},
 			{
-				"<leader>fh",
+				"<leader>fs",
 				function()
-					Snacks.picker.help()
+					Snacks.picker.lsp_symbols()
 				end,
-				desc = "Help Pages",
+				desc = "LSP Document Symbols",
+			},
+			{
+				"<leader>fS",
+				function()
+					Snacks.picker.lsp_workspace_symbols()
+				end,
+				desc = "LSP Workspace Symbols",
 			},
 			{
 				"<leader>E",
@@ -157,7 +180,7 @@ return {
 				function()
 					Snacks.explorer.reveal()
 				end,
-				desc = "Toggle Explorer",
+				desc = "Reveal in Explorer",
 			},
 		},
 	},

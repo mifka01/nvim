@@ -2,10 +2,10 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"folke/neodev.nvim",
 			"saghen/blink.cmp",
 
 			{ "j-hui/fidget.nvim", opts = {} },
+			{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 
 			-- Autoformatting
 			"stevearc/conform.nvim",

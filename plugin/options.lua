@@ -77,10 +77,10 @@ local underline_groups = {
 }
 
 for _, g in ipairs(underline_groups) do
-	local color = vim.api.nvim_get_hl_by_name(g.link, true)
+	local color = vim.api.nvim_get_hl(0, { name = g.link })
 	vim.api.nvim_set_hl(0, g.group, {
 		undercurl = true,
-		sp = color.foreground,
+		sp = color.fg,
 	})
 end
 

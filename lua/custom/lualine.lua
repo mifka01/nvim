@@ -32,10 +32,10 @@ lualine.setup({
 		},
 		lualine_c = {},
 		lualine_x = {
-			{
-				"datetime",
-				style = "%H:%M:%S",
-			},
+		{
+			"datetime",
+			style = "%H:%M",
+		},
 			"encoding",
 		},
 		lualine_y = { "progress" },

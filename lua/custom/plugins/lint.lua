@@ -1,9 +1,9 @@
-local workspace = require("custom.workspace")
-
 return {
 	{
 		"mfussenegger/nvim-lint",
+		ft = "php",
 		config = function()
+			local workspace = require("custom.workspace")
 			local lint = require("lint")
 
 			lint.linters.phpstan = {
